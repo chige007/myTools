@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+            <table>
+                    <tbody>
+                    <tr>
+                    <td>
+                    <p><strong>dis_type </strong></p>
+                    </td>
+                    <td>
+                    <p>String</p>
+                    </td>
+                    <td>
+                    <p>行政处罚</p>
+                    </td>
+                    <td>
+                    <p>50</p>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <p><strong>sign </strong></p>
+                    </td>
+                    <td>
+                    <p>String</p>
+                    </td>
+                    <td>
+                    <p>用户填写的签名</p>
+                    </td>
+                    <td>
+                    <p>50</p>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <p><strong>content </strong></p>
+                    </td>
+                    <td>
+                    <p>String</p>
+                    </td>
+                    <td>
+                    <p>正文</p>
+                    </td>
+                    <td>
+                    <p>-</p>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <p><strong>content.eid </strong></p>
+                    </td>
+                    <td>
+                    <p>String</p>
+                    </td>
+                    <td>
+                    <p>公司唯一ID</p>
+                    </td>
+                    <td>
+                    <p>50</p>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var jsonArr = [];
+            var table = $("table").eq(0);
+
+            $(table).find('tr').each(function(i, e){
+                var json = {};
+                json.field = $(e).find('td').eq(0).text().trim();
+                json.type = $(e).find('td').eq(1).text().trim();
+                json.comment = $(e).find('td').eq(2).text().trim();
+                json.length = $(e).find('td').eq(3).text().trim();
+                jsonArr.push(json);
+            });
+
+            console.log(JSON.stringify(jsonArr));
+        });
+    </script>
+</body>
+</html>
